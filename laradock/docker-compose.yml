@@ -59,6 +59,7 @@ services:
 
 ### Workspace Utilities ##################################
     workspace:
+      container_name: ${COMPOSE_PROJECT_NAME}-workspace
       build:
         context: ./workspace
         args:
@@ -203,7 +204,7 @@ services:
 
 ### PHP-FPM ##############################################
     php-fpm:
-#      container_name: orchid-php-fpm
+      container_name: ${COMPOSE_PROJECT_NAME}-php-fpm
       build:
         context: ./php-fpm
         args:
@@ -397,7 +398,7 @@ services:
 
 ### NGINX Server #########################################
     nginx:
-#      container_name: orchid-nginx
+      container_name: ${COMPOSE_PROJECT_NAME}-nginx
       build:
         context: ./nginx
         args:
@@ -720,6 +721,7 @@ services:
 
   ### Redis ################################################
     redis:
+      container_name: ${COMPOSE_PROJECT_NAME}-nginx
       build: ./redis
       volumes:
         - ${DATA_PATH_HOST}/redis:/data
