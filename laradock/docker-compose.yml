@@ -60,6 +60,7 @@ services:
 ### Workspace Utilities ##################################
     workspace:
       container_name: ${COMPOSE_PROJECT_NAME}-workspace
+      user: laradock
       build:
         context: ./workspace
         args:
