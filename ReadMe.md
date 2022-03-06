@@ -9,5 +9,7 @@ project_dir=laravel-with-docker-extracted && \
   cd sources && cp .env.example .env && cd .. && \
   rm -rf .git && \
   docker stop $(docker ps -aq) && \
-  make up install shell
+  make up install migrate && \
+  git init --initial-branch=main && \
+  make shell
 ```
