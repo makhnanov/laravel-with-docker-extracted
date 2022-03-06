@@ -722,7 +722,7 @@ services:
 
   ### Redis ################################################
     redis:
-      container_name: ${COMPOSE_PROJECT_NAME}-nginx
+      container_name: ${COMPOSE_PROJECT_NAME}-redis
       build: ./redis
       volumes:
         - ${DATA_PATH_HOST}/redis:/data
