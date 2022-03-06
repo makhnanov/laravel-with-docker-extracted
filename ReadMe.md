@@ -13,3 +13,6 @@ project_dir=laravel-with-docker-extracted && \
   git init --initial-branch=main && \
   make shell
 ```
+
+## Project on GitHub
+[https://github.com/makhnanov/laravel-with-docker-extracted](https://github.com/makhnanov/laravel-with-docker-extracted)
