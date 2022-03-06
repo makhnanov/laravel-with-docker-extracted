@@ -1,7 +1,8 @@
 # Install guide
 ```shell
+# https://github.com/makhnanov/laravel-with-docker-extracted.git
 # git@github.com:makhnanov/laravel-with-docker-extracted.git
-project_dir=laravel-with-docker-extracted && \
+project_dir=../laravel-with-docker-extracted && \
   git clone git@github.com:makhnanov/laravel-with-docker-extracted.git $project_dir && \
   cd $project_dir && \
   cd laradock && cp .env.example .env && cd .. && \
