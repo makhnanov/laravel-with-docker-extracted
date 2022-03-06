@@ -1,4 +1,4 @@
-COMPOSE = docker compose --file docker-compose.yml
+COMPOSE = docker compose --file laradock/docker-compose.yml
 up:
 	$(COMPOSE) up --detach --force-recreate --build --remove-orphans \
 	workspace nginx redis php-fpm
