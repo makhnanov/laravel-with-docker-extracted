@@ -1242,18 +1242,18 @@ RUN if [ ${INSTALL_MEMCACHED} = true ]; then \
 # pgsql client
 ###########################################################################
 
-USER root
-
-ARG INSTALL_PG_CLIENT=false
-
-RUN if [ ${INSTALL_PG_CLIENT} = true ]; then \
-    # Install the pgsql client
-    apt-get -yqq install wget \
-    && wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
-    && echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" | tee /etc/apt/sources.list.d/pgdg.list \
-    && apt-get update \
-    && apt-get -y install postgresql-client-12 \
-;fi
+#USER root
+#
+#ARG INSTALL_PG_CLIENT=false
+#
+#RUN if [ ${INSTALL_PG_CLIENT} = true ]; then \
+#    # Install the pgsql client
+#    apt-get -yqq install wget \
+#    && wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
+#    && echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" | tee /etc/apt/sources.list.d/pgdg.list \
+#    && apt-get update \
+#    && apt-get -y install postgresql-client-12 \
+#;fi
 
 ###########################################################################
 # Dusk Dependencies:
@@ -1309,41 +1309,41 @@ RUN if [ ${INSTALL_PG_CLIENT} = true ]; then \
 #;fi
 
 ###########################################################################
-USER root
-
-ARG INSTALL_MYSQL_CLIENT=false
-ARG INSTALL_PING=false
-ARG INSTALL_SSHPASS=false
-ARG INSTALL_DOCKER_CLIENT=false
-
-RUN set -eux; \
-  ###########################################################################
-  # MySQL Client:
-  ###########################################################################
-  if [ ${INSTALL_MYSQL_CLIENT} = true ]; then \
-    apt-get -yqq install mysql-client; \
-  fi; \
-  ###########################################################################
-  # ping:
-  ###########################################################################
-  if [ ${INSTALL_PING} = true ]; then \
-    apt-get -yqq install inetutils-ping; \
-  fi; \
-  ###########################################################################
-  # sshpass:
-  ###########################################################################
-  if [ ${INSTALL_SSHPASS} = true ]; then \
-    apt-get -yqq install sshpass; \
-  fi; \
-  ###########################################################################
-  # Docker Client:
-  ###########################################################################
-  if [ ${INSTALL_DOCKER_CLIENT} = true ]; then \
-    curl -sS https://download.docker.com/linux/static/stable/x86_64/docker-20.10.3.tgz -o /tmp/docker.tar.gz; \
-    tar -xzf /tmp/docker.tar.gz -C /tmp/; \
-    cp /tmp/docker/docker* /usr/local/bin; \
-    chmod +x /usr/local/bin/docker*; \
-  fi
+#USER root
+#
+#ARG INSTALL_MYSQL_CLIENT=false
+#ARG INSTALL_PING=false
+#ARG INSTALL_SSHPASS=false
+#ARG INSTALL_DOCKER_CLIENT=false
+#
+#RUN set -eux; \
+#  ###########################################################################
+#  # MySQL Client:
+#  ###########################################################################
+#  if [ ${INSTALL_MYSQL_CLIENT} = true ]; then \
+#    apt-get -yqq install mysql-client; \
+#  fi; \
+#  ###########################################################################
+#  # ping:
+#  ###########################################################################
+#  if [ ${INSTALL_PING} = true ]; then \
+#    apt-get -yqq install inetutils-ping; \
+#  fi; \
+#  ###########################################################################
+#  # sshpass:
+#  ###########################################################################
+#  if [ ${INSTALL_SSHPASS} = true ]; then \
+#    apt-get -yqq install sshpass; \
+#  fi; \
+#  ###########################################################################
+#  # Docker Client:
+#  ###########################################################################
+#  if [ ${INSTALL_DOCKER_CLIENT} = true ]; then \
+#    curl -sS https://download.docker.com/linux/static/stable/x86_64/docker-20.10.3.tgz -o /tmp/docker.tar.gz; \
+#    tar -xzf /tmp/docker.tar.gz -C /tmp/; \
+#    cp /tmp/docker/docker* /usr/local/bin; \
+#    chmod +x /usr/local/bin/docker*; \
+#  fi
 
 ###########################################################################
 #USER root
@@ -1516,7 +1516,7 @@ RUN set -eux; \
 # Check PHP version:
 ###########################################################################
 
-RUN #set -xe; php -v | head -n 1 | grep -q "PHP ${LARADOCK_PHP_VERSION}."
+RUN set -xe; php -v | head -n 1 | grep -q "PHP ${LARADOCK_PHP_VERSION}."
 
 ###########################################################################
 # Oh My ZSH!
@@ -1601,7 +1601,7 @@ RUN #set -xe; php -v | head -n 1 | grep -q "PHP ${LARADOCK_PHP_VERSION}."
 # PHP DECIMAL:
 ###########################################################################
 
-USER root
+#USER root
 
 #ARG INSTALL_PHPDECIMAL=false
 #
