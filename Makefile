@@ -10,6 +10,6 @@ install:
 key:
 	$(COMPOSE) exec --user=laradock workspace php artisan key:generate
 migrate:
-	$(COMPOSE) exec --user=laradock workspace php artisan migrate
+	echo stub # $(COMPOSE) exec --user=laradock workspace php artisan migrate
 shell:
 	while true; do clear && $(COMPOSE) exec --user=laradock workspace bash; sleep 1; done;
