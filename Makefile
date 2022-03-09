@@ -3,6 +3,8 @@ COMPOSE_PROJECT_NAME = laradock
 up:
 	$(COMPOSE) up --detach --force-recreate --build --remove-orphans \
 	workspace nginx redis php-fpm
+down:
+	$(COMPOSE) down
 recreate-workspace:
 	$(COMPOSE) up --force-recreate --build --remove-orphans workspace --detach
 install:
